@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MVVMRoomRetrofit</string>
+    <string name="str_user_name">User name</string>
+    <string name="str_email">Email</string>
+</resources>
