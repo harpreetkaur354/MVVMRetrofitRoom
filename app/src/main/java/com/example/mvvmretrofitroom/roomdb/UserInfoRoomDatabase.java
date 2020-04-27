@@ -1,4 +1,4 @@
-package com.example.mvvmroomretrofit.roomdb;
+package com.example.mvvmretrofitroom.roomdb;
 
 import android.content.Context;
 
@@ -8,8 +8,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.mvvmroomretrofit.model.Users;
-import com.example.mvvmroomretrofit.model.UsersBeen;
+import com.example.mvvmretrofitroom.model.UsersBeen;
 
 @Database(entities = {UsersBeen.class}, version = 1, exportSchema = true)
 public abstract class UserInfoRoomDatabase extends RoomDatabase {

@@ -1,4 +1,4 @@
-package com.example.mvvmroomretrofit.repository;
+package com.example.mvvmretrofitroom.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
@@ -8,14 +8,11 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.mvvmroomretrofit.model.Users;
-import com.example.mvvmroomretrofit.model.UsersBeen;
-import com.example.mvvmroomretrofit.retrofit.ApiClient;
-import com.example.mvvmroomretrofit.retrofit.ApiInterface;
-import com.example.mvvmroomretrofit.roomdb.UserInfoDao;
-import com.example.mvvmroomretrofit.roomdb.UserInfoRoomDatabase;
-
-import java.util.List;
+import com.example.mvvmretrofitroom.model.UsersBeen;
+import com.example.mvvmretrofitroom.retrofit.ApiClient;
+import com.example.mvvmretrofitroom.retrofit.ApiInterface;
+import com.example.mvvmretrofitroom.roomdb.UserInfoDao;
+import com.example.mvvmretrofitroom.roomdb.UserInfoRoomDatabase;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,12 +49,6 @@ public class UsersRepository {
                     Log.d(TAG,"Response: "+response);
                     if(response.body()!= null)
                     {
-                        Users users = new Users();
-                        users.setPage(response.body().getPage());
-                        users.setPerPage(response.body().getPerPage());
-                        users.setTotal(response.body().getTotal());
-                        users.setTotalPages(response.body().getTotalPages());
-
                         insertUser(response.body());
                         data.setValue(response.body());
                         Log.e(TAG,"Total Employee :"+response.body().getData().size());

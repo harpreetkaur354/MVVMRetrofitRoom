@@ -1,4 +1,4 @@
-package com.example.mvvmroomretrofit.model;
+package com.example.mvvmretrofitroom.model;
 
 import androidx.room.TypeConverter;
 

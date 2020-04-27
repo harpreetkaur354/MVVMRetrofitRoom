@@ -1,4 +1,4 @@
-package com.example.mvvmroomretrofit.retrofit;
+package com.example.mvvmretrofitroom.retrofit;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,9 +23,5 @@ public class ApiClient {
                     .build();
         }
         return retrofit;
-    }
-
-    public static ApiInterface ApiCall(){
-        return ApiClient.getClient().create(ApiInterface.class);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.mvvmroomretrofit;
+package com.example.mvvmretrofitroom;
 
 import org.junit.Test;
 

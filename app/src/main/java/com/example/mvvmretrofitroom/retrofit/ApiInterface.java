@@ -1,6 +1,6 @@
-package com.example.mvvmroomretrofit.retrofit;
+package com.example.mvvmretrofitroom.retrofit;
 
-import com.example.mvvmroomretrofit.model.UsersBeen;
+import com.example.mvvmretrofitroom.model.UsersBeen;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

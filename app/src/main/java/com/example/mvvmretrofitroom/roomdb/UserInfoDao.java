@@ -1,4 +1,4 @@
-package com.example.mvvmroomretrofit.roomdb;
+package com.example.mvvmretrofitroom.roomdb;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -6,10 +6,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.mvvmroomretrofit.model.Users;
-import com.example.mvvmroomretrofit.model.UsersBeen;
-
-import java.util.List;
+import com.example.mvvmretrofitroom.model.UsersBeen;
 
 @Dao
 public interface UserInfoDao

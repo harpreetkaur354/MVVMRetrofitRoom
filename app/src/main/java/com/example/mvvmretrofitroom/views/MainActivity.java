@@ -1,4 +1,4 @@
-package com.example.mvvmroomretrofit.views;
+package com.example.mvvmretrofitroom.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,10 +11,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.example.mvvmroomretrofit.R;
-import com.example.mvvmroomretrofit.adapters.UsersListAdapter;
-import com.example.mvvmroomretrofit.model.UsersBeen;
-import com.example.mvvmroomretrofit.viewmodel.UsersViewModel;
+import com.example.mvvmretrofitroom.R;
+import com.example.mvvmretrofitroom.adapters.UsersListAdapter;
+import com.example.mvvmretrofitroom.model.UsersBeen;
+import com.example.mvvmretrofitroom.viewmodel.UsersViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

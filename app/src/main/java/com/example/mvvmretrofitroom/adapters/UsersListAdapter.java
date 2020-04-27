@@ -1,4 +1,4 @@
-package com.example.mvvmroomretrofit.adapters;
+package com.example.mvvmretrofitroom.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mvvmroomretrofit.R;
-import com.example.mvvmroomretrofit.model.UsersBeen;
+import com.example.mvvmretrofitroom.R;
+import com.example.mvvmretrofitroom.model.UsersBeen;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

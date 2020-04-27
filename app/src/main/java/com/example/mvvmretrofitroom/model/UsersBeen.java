@@ -1,4 +1,4 @@
-package com.example.mvvmroomretrofit.model;
+package com.example.mvvmretrofitroom.model;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -166,9 +166,6 @@ public class UsersBeen {
         }
 
     }
-
-
-
 }
 
 
