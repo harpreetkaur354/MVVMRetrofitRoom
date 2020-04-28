@@ -8,14 +8,16 @@ import androidx.room.Query;
 
 import com.example.mvvmretrofitroom.model.UsersBeen;
 
+import java.util.List;
+
 @Dao
 public interface UserInfoDao
 {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(UsersBeen users);
+    void insert(List<UsersBeen> users);
 
    @Query("SELECT * from user_bean ORDER BY id ASC")
-    LiveData<UsersBeen> getAllUsers();
+    LiveData<List<UsersBeen>> getAllUsers();
 
    @Query("DELETE FROM user_bean")
     void deleteAll();

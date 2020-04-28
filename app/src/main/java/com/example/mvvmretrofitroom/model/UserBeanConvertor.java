@@ -11,17 +11,17 @@ import java.util.List;
 
 public class UserBeanConvertor {
     @TypeConverter
-    public static List<UsersBeen.Datum> storedStringToMyObjects(String data) {
+    public static List<UsersBeen> storedStringToMyObjects(String data) {
         Gson gson = new Gson();
         if (data == null) {
             return Collections.emptyList();
         }
-        Type listType = new TypeToken<List<UsersBeen.Datum>>() {}.getType();
+        Type listType = new TypeToken<List<UsersBeen>>() {}.getType();
         return gson.fromJson(data, listType);
     }
 
     @TypeConverter
-    public static String myObjectsToStoredString(List<UsersBeen.Datum> myObjects) {
+    public static String myObjectsToStoredString(List<UsersBeen> myObjects) {
         Gson gson = new Gson();
         return gson.toJson(myObjects);
     }

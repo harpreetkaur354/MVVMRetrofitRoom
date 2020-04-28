@@ -8,11 +8,13 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.mvvmretrofitroom.model.EmployeeBeen;
 import com.example.mvvmretrofitroom.model.UsersBeen;
 
-@Database(entities = {UsersBeen.class}, version = 1, exportSchema = true)
+@Database(entities = {UsersBeen.class, EmployeeBeen.class}, version = 1, exportSchema = true)
 public abstract class UserInfoRoomDatabase extends RoomDatabase {
     public abstract UserInfoDao userInfoDao();
+    public abstract EmployeeInfoDao employeeInfoDao();
     private static UserInfoRoomDatabase INSTANCE;
 
     public static UserInfoRoomDatabase getDatabase(final Context context) {

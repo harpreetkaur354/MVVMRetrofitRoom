@@ -9,11 +9,14 @@ import androidx.lifecycle.LiveData;
 import com.example.mvvmretrofitroom.model.UsersBeen;
 import com.example.mvvmretrofitroom.repository.UsersRepository;
 
+import java.util.List;
+
 import static com.example.mvvmretrofitroom.MyApplication.application;
 
 public class UsersViewModel extends AndroidViewModel {
     private UsersRepository usersRepository;
-    private LiveData<UsersBeen> usersBeenLiveData;
+    private LiveData<List<UsersBeen>> usersBeenLiveData;
+
     public UsersViewModel(@NonNull Application application) {
         super(application);
         usersRepository = new UsersRepository(application);
@@ -21,16 +24,14 @@ public class UsersViewModel extends AndroidViewModel {
         this.usersBeenLiveData = usersRepository.getmAllUsers();
     }
 
-    public void queryAPI()
-    {
+    public void queryAPI() {
         //get user repo
         usersRepository = new UsersRepository(application);
         //get api data using repo instance
         this.usersBeenLiveData = usersRepository.getUsers();
     }
 
-    public LiveData<UsersBeen> getUsersBeenLiveData()
-    {
+    public LiveData<List<UsersBeen>> getUsersBeenLiveData() {
         return usersBeenLiveData;
     }
 }

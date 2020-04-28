@@ -7,7 +7,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    private static final String BASEURL="https://reqres.in/api/";
+    private static final String BASEURL="https://jsonplaceholder.typicode.com";
 
     public static Retrofit retrofit = null;
 

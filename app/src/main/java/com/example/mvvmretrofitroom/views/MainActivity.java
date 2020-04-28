@@ -1,19 +1,19 @@
 package com.example.mvvmretrofitroom.views;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ProgressBar;
-
 import com.example.mvvmretrofitroom.R;
 import com.example.mvvmretrofitroom.adapters.UsersListAdapter;
 import com.example.mvvmretrofitroom.model.UsersBeen;
+import com.example.mvvmretrofitroom.utils.NetworkStatus;
 import com.example.mvvmretrofitroom.viewmodel.UsersViewModel;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar progressCircular;
     private LinearLayoutManager layoutManager;
     private UsersListAdapter usersListAdapter;
-    private ArrayList<UsersBeen.Datum> usersBeenArrayList = new ArrayList<>();
+    private ArrayList<UsersBeen> usersBeenArrayList = new ArrayList<>();
     private UsersViewModel usersViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +32,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //initial method call
         initView();
-        usersViewModel.queryAPI();
+        if(NetworkStatus.getInstance(this).isOnline())
+        {
+            usersViewModel.queryAPI();
+        }
         getSetUsersData();
-
-
     }
 
     public void initView()
@@ -57,18 +58,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void getSetUsersData()
     {
-        usersViewModel.getUsersBeenLiveData().observe(this, new Observer<UsersBeen>() {
+        usersViewModel.getUsersBeenLiveData().observe(this, new Observer<List<UsersBeen>>() {
             @Override
-            public void onChanged(UsersBeen usersBeen) {
+            public void onChanged(List<UsersBeen> usersBeen) {
                 if(usersBeen != null)
                 {
                     progressCircular.setVisibility(View.GONE);
-                    List<UsersBeen.Datum> employeeList = usersBeen.getData();
-                    usersBeenArrayList.addAll(employeeList);
+                    usersBeenArrayList.addAll(usersBeen);
                     usersListAdapter.notifyDataSetChanged();
                 }
             }
         });
-
     }
 }

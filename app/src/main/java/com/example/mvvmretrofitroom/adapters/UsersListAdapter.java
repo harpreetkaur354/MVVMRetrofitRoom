@@ -1,6 +1,7 @@
 package com.example.mvvmretrofitroom.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mvvmretrofitroom.R;
 import com.example.mvvmretrofitroom.model.UsersBeen;
-import com.squareup.picasso.Picasso;
+import com.example.mvvmretrofitroom.views.EmployeeListActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyHolder> {
     private Context mContext;
-    private ArrayList<UsersBeen.Datum> usersBeenArrayList;
+    private ArrayList<UsersBeen> usersBeenArrayList;
 
-    public UsersListAdapter(Context context, ArrayList<UsersBeen.Datum> usersBeenArrayList)
+    public UsersListAdapter(Context context, ArrayList<UsersBeen> usersBeenArrayList)
     {
         this.mContext = context;
         this.usersBeenArrayList = usersBeenArrayList;
@@ -35,12 +37,16 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyHo
 
     @Override
     public void onBindViewHolder(@NonNull UsersListAdapter.MyHolder holder, int position) {
-        Picasso.with(mContext).load(usersBeenArrayList.get(position).getAvatar()).into(holder.ivUserProfile);
         holder.tvEmail.setText(usersBeenArrayList.get(position).getEmail());
-        String firstName = usersBeenArrayList.get(position).getFirstName();
-        String lastName = usersBeenArrayList.get(position).getLastName();
-        String userName = firstName + lastName;
-        holder.tvUserName.setText(userName);
+//        String name = usersBeenArrayList.get(position).getName();
+        holder.tvUserName.setText(usersBeenArrayList.get(position).getName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext.startActivity(new Intent(mContext, EmployeeListActivity.class));
+            }
+        });
     }
 
     @Override
